@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.wst.jsdt.internal.ui.text.QuickOutline">
+		<item key="org.eclipse.wst.jsdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<item key="org.eclipse.wst.jsdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_SIZE" value="false"/>
+		<item key="GoIntoTopLevelTypeAction.isChecked" value="false"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="0"/>
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+</section>

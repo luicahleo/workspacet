@@ -1,0 +1,220 @@
+"use strict";
+
+//Indica el id de la ultima nota cuyo detalle se está mostrando
+var ultid=-1;
+
+// Estado "checkbox": Permita la funcionalidad del botón Des/Marcar Notas
+var marcarChecks = true;
+
+//Esta funcion sirve para mostrar un mensaje mientras se obtienen los detalles
+function mostrarEsperando(elemento) {
+	var html = "<p><strong>Obteniendo detalles...</strong></p>"+
+				"<img src='../imagenes/espera.gif' alt='Espera' />";
+	elemento.innerHTML=html;
+}
+//Muestra los detalles obtenidos mediante AJAX.
+//objetoDetalle, tiene que ser un objeto con las siguientes propiedades:
+//	nota: texto de la nota
+//	imagen: url de la imagen asociada a la nota
+//  error: texto con el error producido al buscar los detalles de una nota
+function mostrarDetalle(elemento, objetoDetalle, id) {
+	if (objetoDetalle.error != null && objetoDetalle.error !="") {
+		//error
+		elemento.innerHTML="<p>Error: "+objetoDetalle.error+"</p>";
+	} else {
+		elemento.innerHTML=
+			"<p>categorias: "+objetoDetalle.categorias+"</p>";
+			
+			
+	}
+}
+
+//Muestra informacion sobre la nota con el identificador pasado
+function mostrar() {
+	//el padre tiene un id del tipo "fila-num"
+	var prefix = "fila-";
+	var id = parseInt(this.parentElement.id.substring(prefix.length));
+	
+	if (ultid > 0) {
+		//Ocultamos el anterior detalle
+		if ( document.getElementById("detalle-"+ultid) != null )
+			document.getElementById("detalle-"+ultid).style.display="none";
+	}
+	if (ultid == id)  //en este caso, no mostramos, solo ocultamos
+		ultid = -1; 
+	else {
+		ultid = id;
+		
+		//Cambiamos el detalle
+		var divDetalle = document.getElementById("detalle-"+ultid);
+		mostrarEsperando(divDetalle);
+		divDetalle.style.display="block"; //Hacemos visible
+
+		//Peticion AJAX
+		var peticion="cyc?nombre_usu=usuario"; //?id="+ultid;
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("POST",peticion,true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.onreadystatechange = function(){ 
+			if (xmlhttp.readyState==4) {
+				if (xmlhttp.status==200) { 
+					//Respuesta recibida completamente (4) y sin
+					//errores del servidor (codigo HTTP 200) 
+					//Analizamos
+					var detalleNota = JSON.parse(xmlhttp.responseText);
+					mostrarDetalle(divDetalle, detalleNota, id);
+				} else {
+					divDetalle.innerHTML=cabDetalle+"<p>Error</p>";
+				}
+			}
+		  };
+		xmlhttp.send("id="+ultid); //enviamos
+	}
+}
+
+//Carga "editarnota.jsp" relleno con los datos de la nota
+// con el "id" recibido, para poder editarla en la BD
+function editarNota(event, id) {
+	
+	//Para evitar que se oculte el detalle
+	event.stopPropagation();
+	
+	// Saltamos a la ventana de edicion
+	window.location='../usuarios/editarnota.jsp?eid='+id;
+}
+
+//Borrar (de BD y web) la nota con el "id" pasado
+function borrarNota(id)
+{
+	//Peticion AJAX
+	var peticion="borranota";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST",peticion,true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.onreadystatechange = function(){ 
+		if (xmlhttp.readyState==4) {
+			if (xmlhttp.status==200) { 
+				//Respuesta recibida completamente (4) y sin
+				//errores del servidor (codigo HTTP 200) 
+				//Analizamos
+				var resultadoBorrar = JSON.parse(xmlhttp.responseText);
+				procesarResultadoBorrar(resultadoBorrar);
+			} else {
+				divDetalle.innerHTML=cabDetalle+"<p>Error</p>";
+			}
+		}
+	  };
+	xmlhttp.send("id="+id); //enviamos
+}
+
+//Borrar la nota cuyo botón "Borrar" se ha pulsado
+function borrar(event, id) {
+	
+	//Para evitar que se oculte el detalle
+	event.stopPropagation();
+	
+	// Borramos
+	borrarNota(id);
+}
+
+//Procesa resultados de borrar obtenidos mediante AJAX.
+//resultadoBorrar, tiene que ser un objeto con las siguientes propiedades:
+//	id: identificador numérico de la nota
+//error: texto con el error producido al borrar nota. 
+//        Es una cadena vacía si se borró correctamente.
+function procesarResultadoBorrar(resultadoBorrar) {
+	//Si tiene mensaje de error, mostramos como mensaje emergente.
+	if (resultadoBorrar.error) {
+		alert(resultadoBorrar.error);
+	} else {
+		//Eliminamos elemento de la tabla
+		var fila = document.getElementById("fila-"+resultadoBorrar.id);
+		fila.parentNode.removeChild(fila);
+		
+		// Si la nota a borrar es la que tiene el detalle mostrado
+		// indicamos que se queda sin ninguna nota con detlla
+		if ( ultid == resultadoBorrar.id)
+			ultid = -1;
+	}
+}
+
+	
+
+// Des/Marca el checkbox de todas las notas listadas
+function desMarcarTodas()
+{
+	// Localizar todos los checkbox de Notas
+	var checks = document.querySelectorAll(".checkboxNota");
+
+	for(var i=0; i<checks.length; i++)
+		( marcarChecks )
+		? checks[i].checked = true				// true: Marcar
+		: checks[i].checked = false;			// false: Desmarcar
+	
+	marcarChecks = !marcarChecks;
+}
+
+
+// Borra las notas con el checkbox marcado
+function borrarSeleccionadas()
+{
+	procesarNotasSeleccionadas(0);	// 0 = Borrar
+}
+
+//Procesar las notas con el checkbox marcado
+//Recibe un argumento "operacion" con la operacion a realizar
+//* 0 = Borrar
+function procesarNotasSeleccionadas(operacion)
+{
+	var notasMarcadas = false;		// ¿Alguna nota marcada? (Para mostrar solo un mensaje)
+	var aplicarOperacion = true;		// aplicarOperacion
+	var mensaje = "Operacion";
+	
+	// Localizar todos los checkbox de Notas
+	var checks = document.querySelectorAll(".checkboxNota");
+	
+	// Analizar los checkbox
+	for(var i=0; i<checks.length && aplicarOperacion ; i++)
+		if ( checks[i].checked )		// NotaMarcada
+		{
+			if ( !notasMarcadas )	// Solo se aplica en la primera nota marcada
+			{
+				if ( operacion == 0 )		// Borrar (0) la Nota
+					mensaje = "Borrar";
+				aplicarOperacion = confirm("¿" + mensaje + " todas las notas seleccionadas?");	// OK = true
+				notasMarcadas = true;		// No mostrar el alert ni este confirm de nuevo
+			}
+			
+			if ( aplicarOperacion )
+			{
+				// Obtenetmos el id de la nota
+				// la fila padre <tr> tiene un id del tipo "fila-numNota"
+				var prefix = "fila-";
+				var id = parseInt(checks[i].parentElement.parentElement.id.substring(prefix.length));
+			
+				// Procesar esta nota
+				if ( operacion == 0 )		// Borrar (0) la Nota
+					borrarNota(id);
+			}
+		}
+	
+	// Mensaje segun haya notas marcadas o no
+	if ( !notasMarcadas ) alert("No ha seleccionado ninguna nota");
+}
+
+
+// Asigna eventos al cargar la pagina
+window.addEventListener("load", function() {
+	var infos = document.querySelectorAll(".infonota");
+	for(var i=0; i< infos.length; i++) {
+		infos[i].onclick=mostrar;
+	}
+	
+	// Eventos botones
+	var botonDesMarcarTodos = document.getElementById("desMarcarTodas")
+	if ( botonDesMarcarTodos != null ) botonDesMarcarTodos.onclick=desMarcarTodas;
+	
+	var botonBorrarSeleccionadas = document.getElementById("borrarSeleccionadas");
+	if ( botonBorrarSeleccionadas != null ) botonBorrarSeleccionadas.onclick=borrarSeleccionadas;
+});
+

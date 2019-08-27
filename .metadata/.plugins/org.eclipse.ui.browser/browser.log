@@ -1,0 +1,16 @@
+
+ago. 27, 2019 09:01:21.97 NEW SESSION
+ago. 27, 2019 09:01:21.97 [2502, Main Thread] ###!!! ABORT: file resource://gre/modules/TelemetryEnvironment.jsm, line 563
+ago. 27, 2019 09:01:21.97 [2502, Main Thread] ###!!! ABORT: file resource://gre/modules/TelemetryEnvironment.jsm, line 563
+ago. 27, 2019 09:01:21.97 ExceptionHandler::GenerateDump cloned child 3690
+ago. 27, 2019 09:01:21.97 ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ago. 27, 2019 09:01:21.97 ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+ago. 27, 2019 09:01:27.94 Failed to open curl lib from binary, use libcurl.so instead
+ago. 27, 2019 09:01:49.15 
+ago. 27, 2019 09:01:49.15 (/usr/lib/firefox/firefox:3766): dconf-WARNING **: 09:01:49.153: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permiso denegado
+ago. 27, 2019 09:24:27.01 [Parent 3692, Gecko_IOThread] WARNING: pipe error (153): Conexión reinicializada por la máquina remota: file /build/firefox-OPBHTt/firefox-68.0.2+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+ago. 27, 2019 09:24:35.84 
+ago. 27, 2019 09:24:35.84 (/usr/lib/firefox/firefox:5846): dconf-WARNING **: 09:24:35.844: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permiso denegado
+ago. 27, 2019 09:45:03.32 
+ago. 27, 2019 09:45:03.32 (/usr/lib/firefox/firefox:6758): dconf-WARNING **: 09:45:03.324: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permiso denegado
+ago. 27, 2019 09:45:16.43 [Parent 3692, Gecko_IOThread] WARNING: pipe error (89): Conexión reinicializada por la máquina remota: file /build/firefox-OPBHTt/firefox-68.0.2+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
