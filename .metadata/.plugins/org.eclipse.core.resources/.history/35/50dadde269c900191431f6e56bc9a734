@@ -1,0 +1,23 @@
+"use strict";
+
+function creaMenuDesplegable() {
+
+	// Saltamos a la ventana de edicion
+	// window.location='admins/menu.jsp?=despliegaMenu='+true;
+
+	// creamos el menu desplegable
+
+	var select = document.getElementById("categoria");
+	var option = document.createElement("option");
+	option.text = categoria.toLowerCase();
+	select.add(option);
+	select.value = categoria;
+
+}
+
+// Asigna eventos al cargar la pagina
+window.addEventListener("load", function() {
+	var nombreusuario = document.getElementById("nombreusuario");
+	nombreusuario.onclick = creaMenuDesplegable;
+
+});

@@ -1,0 +1,17 @@
+"use strict";
+
+function desplegarFuncion() {
+	
+	
+	
+}
+
+
+// Asigna eventos al cargar la pagina
+window.addEventListener("load", function() {
+	var nombreusuario = document.getElementById("nombreusuario");
+	nombreusuario.onclick = desplegarFuncion;
+	
+	
+});
+

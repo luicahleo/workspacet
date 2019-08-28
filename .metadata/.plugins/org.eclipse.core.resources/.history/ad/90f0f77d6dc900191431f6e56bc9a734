@@ -1,0 +1,16 @@
+"use strict";
+
+function muestraOculta() {
+
+	
+
+	
+
+}
+
+// Asigna eventos al cargar la pagina
+window.addEventListener("load", function() {
+	var subseccion = document.getElementById("subseccion");
+	subseccion.onclick = muestraOculta;
+
+});

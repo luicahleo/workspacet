@@ -1,0 +1,37 @@
+
+<div id="cabecera">
+	<div id="logotipo">
+		<a href="${pageContext.request.contextPath}/menu.jsp"> <img
+			src="${pageContext.request.contextPath}/imagenes/blocnotasfast-p.png"
+			alt="Bloc de Notas FAST" />
+		</a>
+	</div>
+
+
+
+
+
+	<%-- 		<a href="${pageContext.request.contextPath}/index.jsp?salir"><span class="acceso">Cerrar sesión</span></a>
+ --%>
+	<div>
+		<span class='acceso' id='nombreusuario'>${usuario.nombre}</span>
+	</div>
+
+	<%
+		String menu = request.getParameter("despliegaMenu");
+
+		if (menu != null && menu.equals("true")) {
+	%>
+	<!-- <div class="acceso" id='divDespleable'>
+		<ul>
+			<li>Perfil</li>
+			<li>Notas</li>
+			<li>Cerrar sesion</li>
+		</ul>
+
+
+	</div> -->
+	<%
+		}
+	%>
+</div>

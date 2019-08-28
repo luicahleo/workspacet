@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Tue Aug 27 14:23:34 CEST 2019
+#Wed Aug 28 10:38:59 CEST 2019
 org.eclipse.jst.jee.server\:bloc=/home/dit/tomcat/webapps/bloc
 org.eclipse.jst.jee.server\:bloc-inicial=/home/dit/tomcat/webapps/bloc-inicial

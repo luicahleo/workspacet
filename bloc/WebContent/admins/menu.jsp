@@ -9,6 +9,7 @@
 <title>Bloc de Notas - FAST: Menú</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+<script  type="text/javascript" src="usuarios/js/cabecera.js"></script>
 </head>
 <jsp:include page="../usuarios/cabecera.jsp" />
 <div id="menu">

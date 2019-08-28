@@ -1,0 +1,22 @@
+"use strict";
+
+var ultClick = true;
+
+function muestraOculta() {
+
+	if(ultClick){
+		document.getElementById("subseccion").style.display="block";
+	}
+	else{
+		document.getElementById("subseccion").style.display="block";
+	}
+	
+
+}
+
+// Asigna eventos al cargar la pagina
+window.addEventListener("load", function() {
+	var subseccion = document.getElementById("subseccion");
+	subseccion.onclick = muestraOculta;
+
+});
