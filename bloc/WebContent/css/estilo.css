@@ -99,6 +99,14 @@ a img {
 
 #subseccion ul li {
 	list-style: none;
+	list-style: none;
+	width: 110px;
+	margin: 1px;
+	font-size: 15px;
+	background-color: #a55;
+	color: white;
+	text-align: center;
+	height: 50px;
 }
 
 #pie {
