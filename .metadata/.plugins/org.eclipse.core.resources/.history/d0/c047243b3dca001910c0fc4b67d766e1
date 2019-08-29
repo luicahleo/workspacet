@@ -14,7 +14,7 @@
 		<div id='subseccion'>
 			<ul>
 				<li id='perfilId'><a href="${pageContext.request.contextPath}/perfil.jsp">Perfil</a></li>
-				<li id='notasId'><a href="${pageContext.request.contextPath}/menu.jsp">Notas</a></li>
+				<li id='notasId'><a href="${pageContext.request.contextPath}/listarnotas.jsp">Notas</a></li>
 				<li id='salirId'><a href="${pageContext.request.contextPath}/index.jsp?salir">Cerrar
 						sesion</a></li>
 			</ul>
