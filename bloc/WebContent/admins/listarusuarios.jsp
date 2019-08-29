@@ -5,11 +5,11 @@
 	
 <jsp:useBean id="usuario" class="fast.bloc.Usuario" scope="session" />
 <jsp:useBean id="notas" class="fast.bloc.NotasDAO" scope="application" />
-<jsp:useBean id="usuarioDao" class="fast.bloc.UsuariosDAO" scope="application" />
+<jsp:useBean id="usua" class="fast.bloc.UsuariosDAO" scope="application" />
 
 <%
 //List<Nota> lista = notas.obtenerTitulos(usuario.getNombre());
-//List<Usuario> listaUsuarios = usuarioDao.obtenerUsuarios();
+//List<Usuario> listaUsuarios1 = usua.obtenerUsuarios();
 List<Usuario> listaUsuarios = notas.obtenerUsuarios();
 
 

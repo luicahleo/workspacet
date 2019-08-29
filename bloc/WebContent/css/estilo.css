@@ -67,12 +67,11 @@ a img {
 }
 
 #nombreusuario {
-	position: relative; font-size : 15px;
+	position: relative;
 	width: 110px;
 	background-color: white;
 	color: #a55;
-	width: 110px;
-	font-size: 15px;
+	font-size: 11px;
 }
 
 #nombreusuario:hover {
@@ -83,7 +82,6 @@ a img {
 #seccion {
 	position: relative;
 	display: block;
-	background-color: #a55;
 	color: white;
 	float: right;
 	font-size: 11px;
@@ -95,10 +93,16 @@ a img {
 
 #subseccion {
 	display: none;
+	font-size: 11px;
+	
 }
 
+
+
 #subseccion ul li {
+	background-color: #a55;
 	list-style: none;
+	width: 110px;
 }
 
 #pie {

@@ -20,6 +20,6 @@ function muestraOculta() {
 // Asigna eventos al cargar la pagina
 window.addEventListener("load", function() {
 	var subseccion = document.getElementById("seccion");
-	subseccion.onclick = muestraOculta;
+	subseccion.onclick = muestraOculta;//le damos el evento a la subseccion
 
 });

@@ -79,7 +79,8 @@ public class UsuariosDAO {
 
 		try {
 			conn = ds.getConnection();
-			String sql = "SELECT DISTINCT nombre FROM usuarios";
+			System.out.println("debug conexion");
+			String sql = "SELECT nombre FROM usuarios";
 			PreparedStatement st = conn.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
 			System.out.println("Se van a buscar los nombres de los usuarios dentro de la tabla USUARIOS");

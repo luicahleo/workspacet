@@ -9,13 +9,13 @@
 
 	<%-- 		<a href="${pageContext.request.contextPath}/index.jsp?salir"><span class="acceso">Cerrar sesión</span></a>
  --%>
-	<div id='seccion'>
+	<div id='seccion' >
 		<span class='acceso' id='nombreusuario'>${usuario.nombre}</span>
 		<div id='subseccion'>
 			<ul>
-				<li><a href="${pageContext.request.contextPath}/perfil.jsp">Perfil</a></li>
-				<li><a href="${pageContext.request.contextPath}/listarnotas.jsp">Notas</a></li>
-				<li><a href="${pageContext.request.contextPath}/index.jsp?salir">Cerrar
+				<li id='perfilId'><a href="${pageContext.request.contextPath}/perfil.jsp">Perfil</a></li>
+				<li id='notasId'><a href="${pageContext.request.contextPath}/listarnotas.jsp">Notas</a></li>
+				<li id='salirId'><a href="${pageContext.request.contextPath}/index.jsp?salir">Cerrar
 						sesion</a></li>
 			</ul>
 
