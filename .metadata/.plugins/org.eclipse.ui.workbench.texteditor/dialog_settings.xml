@@ -9,12 +9,14 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="nombreusuario"/>
+		<item key="selection" value="mensajeReset"/>
 		<item key="casesensitive" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="wholeword" value="false"/>
 		<list key="findhistory">
+			<item value="mensajeReset"/>
+			<item value="param"/>
 			<item value="nombreusuario"/>
 			<item value="acceso"/>
 			<item value="&apos;acceso&apos;"/>
@@ -29,7 +31,7 @@
 		<item key="DIALOG_WIDTH" value="353"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 		<item key="DIALOG_HEIGHT" value="430"/>
-		<item key="DIALOG_X_ORIGIN" value="927"/>
-		<item key="DIALOG_Y_ORIGIN" value="335"/>
+		<item key="DIALOG_X_ORIGIN" value="620"/>
+		<item key="DIALOG_Y_ORIGIN" value="308"/>
 	</section>
 </section>

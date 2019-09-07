@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;crearnotas.js&apos; to &apos;js&apos;&#x0A;- Original project: &apos;bloc&apos;&#x0A;- Destination element: &apos;js&apos;&#x0A;- Original element: &apos;crearnotas.js&apos;" description="Copy file" element1="WebContent/usuarios/js/crearnotas.js" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1567753104680" target="/bloc/WebContent/usuarios/js" units="0" version="1.0"/>
+</session>

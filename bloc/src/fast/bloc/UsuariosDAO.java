@@ -100,22 +100,64 @@ public class UsuariosDAO {
 		return lista;
 	}
 
-	/*
-	 * public List<Usuario> obtenerUsuarios() {
-	 * 
-	 * List<Usuario> lista = new ArrayList<>(); Connection conn;
-	 * 
-	 * try { conn = ds.getConnection(); String sql = "SELECT nombre FROM usuarios";
-	 * PreparedStatement st = conn.prepareStatement(sql); ResultSet rs =
-	 * st.executeQuery(); System.out.println("Se van a buscar TODOS los usuarios");
-	 * while (rs.next()) { Usuario usuario = new Usuario();
-	 * usuario.setNombre(rs.getString(1));
-	 * System.out.println("Se ha encontrado el usuario con nombre_usuario=" +
-	 * usuario.getNombre()); lista.add(usuario); } rs.close(); st.close();
-	 * conn.close(); } catch (SQLException e) { e.printStackTrace();
-	 * System.out.println("Error en obtenerTitulos() de NotasDAO."); } return lista;
-	 * 
-	 * }
-	 */
+	public boolean existeUsuario(String nombre, String contra) {
+		
+		boolean existe = false;
+		Usuario usuario = null;
+		Connection conn;
+		try {
+			System.out.println("Se va a comprobar el usuario=" + nombre + " y la clave=" + contra);
+			conn = ds.getConnection();
+			String sql = "SELECT * FROM usuarios WHERE nombre=? AND clave=?";
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setString(1, nombre);
+			st.setString(2, contra);
+			ResultSet rs = st.executeQuery();
+			if (rs.next()) {
+				System.out.println("Se ha encontrado el usuario y la clave coincide.");
+				existe = true;
+				usuario = new Usuario();
+				usuario.setNombre(nombre);
+				usuario.setTipo_usu(rs.getInt(3));
+				System.out.println("El tipo de usuario es=" + usuario.getTipo_usu());
+			} else {
+				System.out.println("No se ha encontrado el usuario o la clave no coincide.");
+			}
+			rs.close();
+			st.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Error en existe(" + nombre + ", " + contra + ") de UsuariosDAO");
+		}
+
+		return existe;
+	}
+
+	public boolean actualiza(String nombre, String contra) throws DAOException {
+		
+		boolean resultado=false;
+		Connection conn;
+		try {
+			System.out.println("Se va a actualizar la clave del usuario " + nombre);
+			conn = ds.getConnection();
+			String sql = "UPDATE usuarios SET clave=? WHERE nombre=?";
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setString(1, contra);
+			st.setString(2, nombre);
+			int contador = st.executeUpdate();
+			if (contador == 1) {
+				System.out.println("Se ha actualizado la clave del usuario:" + nombre);
+				resultado=true;
+			}
+			st.close();
+			conn.close();	
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw (new DAOException("Error en actualizar("+contra+", "+nombre+")"));
+		}
+
+		return resultado;
+	}
 
 }

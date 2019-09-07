@@ -1,0 +1,55 @@
+"use strict";
+
+var iguales = false;
+
+//Muestra informacion sobre la nota con el identificador pasado
+function consultarClave() {
+	
+	var clave = document.getElementById("claveActual").value;
+	
+	// Saltamos a la ventana de perfil.jsp pero enviando el prametro de clave
+	window.location="../usuarios/perfil.jsp?clave="+clave+"&iguales="+iguales;
+}
+
+function validaNuevaClave() {
+	
+	
+	
+	
+	//seleccionamos los valores de clave y repetir clave
+	var nombreUsuario = document.getElementById("nombreUsuario");
+	var clave = document.getElementById("claveActual");
+	var nuevaClave = document.getElementById("nuevaClave");
+	var nuevaRepetirClave = document.getElementById("nuevaRepetirClave");
+	var asterisco = document.getElementsByClassName("asterisco");
+	//preguntamos si son iguales
+	if(nuevaClave.value==nuevaRepetirClave.value)
+		iguales = true;
+	else
+		iguales = false;
+	
+	//si las claves son iguales, recien preguntamos a la BD
+	if(iguales)
+		
+		//consultarClave();
+		return iguales;
+	else{
+		alert("ha introducido dos nuevas claves distintas");
+		//hacemos visibles los asteriscos
+		asterisco[0].style.display = "inline-block";
+		asterisco[1].style.display = "inline-block";
+	}
+		
+	
+	
+	return true;
+}
+
+window.addEventListener("load", function() {
+	
+	//le asiganmos un evento a enviar
+	document.getElementById("enviarnota").onclick = validaNuevaClave;
+	
+	
+	
+});

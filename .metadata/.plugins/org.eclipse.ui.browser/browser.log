@@ -14,3 +14,25 @@ ago. 27, 2019 09:24:35.84 (/usr/lib/firefox/firefox:5846): dconf-WARNING **: 09:
 ago. 27, 2019 09:45:03.32 
 ago. 27, 2019 09:45:03.32 (/usr/lib/firefox/firefox:6758): dconf-WARNING **: 09:45:03.324: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permiso denegado
 ago. 27, 2019 09:45:16.43 [Parent 3692, Gecko_IOThread] WARNING: pipe error (89): Conexión reinicializada por la máquina remota: file /build/firefox-OPBHTt/firefox-68.0.2+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+sept. 06, 2019 09:54:33.94 NEW SESSION
+sept. 06, 2019 09:54:33.94 [16030, Main Thread] ###!!! ABORT: file resource://gre/modules/TelemetryEnvironment.jsm, line 594
+sept. 06, 2019 09:54:33.94 [16030, Main Thread] ###!!! ABORT: file resource://gre/modules/TelemetryEnvironment.jsm, line 594
+sept. 06, 2019 09:54:33.94 ExceptionHandler::GenerateDump cloned child 16185
+sept. 06, 2019 09:54:33.94 ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+sept. 06, 2019 09:54:33.94 ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+sept. 06, 2019 09:54:40.61 [Parent 16187, Gecko_IOThread] WARNING: pipe error (158): Conexión reinicializada por la máquina remota: file /build/firefox-9JL5Vx/firefox-69.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+sept. 06, 2019 09:54:58.04 
+sept. 06, 2019 09:54:58.04 (/usr/lib/firefox/firefox:16411): dconf-WARNING **: 09:54:58.040: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permiso denegado
+sept. 06, 2019 10:05:53.86 Failed to open curl lib from binary, use libcurl.so instead
+sept. 06, 2019 10:26:30.26 
+sept. 06, 2019 10:26:30.26 (/usr/lib/firefox/firefox:17221): dconf-WARNING **: 10:26:30.261: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permiso denegado
+sept. 06, 2019 11:13:23.50 
+sept. 06, 2019 11:13:23.50 (/usr/lib/firefox/firefox:18575): dconf-WARNING **: 11:13:23.506: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permiso denegado
+sept. 06, 2019 11:15:27.90 ! SyncTeX Error : No file?
+sept. 06, 2019 11:36:37.47 [Parent 16187, Gecko_IOThread] WARNING: pipe error (77): Conexión reinicializada por la máquina remota: file /build/firefox-9JL5Vx/firefox-69.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+sept. 06, 2019 11:36:37.48 [Parent 16187, Gecko_IOThread] WARNING: pipe error (160): Conexión reinicializada por la máquina remota: file /build/firefox-9JL5Vx/firefox-69.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+sept. 06, 2019 11:36:37.49 [Parent 16187, Gecko_IOThread] WARNING: pipe error (129): Conexión reinicializada por la máquina remota: file /build/firefox-9JL5Vx/firefox-69.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+sept. 06, 2019 11:36:37.49 [Parent 16187, Gecko_IOThread] WARNING: pipe error (119): Conexión reinicializada por la máquina remota: file /build/firefox-9JL5Vx/firefox-69.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+sept. 06, 2019 11:36:37.73 [Parent 16187, Gecko_IOThread] WARNING: pipe error (74): Conexión reinicializada por la máquina remota: file /build/firefox-9JL5Vx/firefox-69.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+sept. 06, 2019 11:36:37.73 [Parent 16187, Gecko_IOThread] WARNING: pipe error (148): Conexión reinicializada por la máquina remota: file /build/firefox-9JL5Vx/firefox-69.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358

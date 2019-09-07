@@ -1,0 +1,48 @@
+"use strict";
+
+
+function validaNuevaClave(nuevaClave,nuevaRepetirClave) {
+	
+	
+	
+	alert("estas en validaNuevaClave");
+	
+	var iguales = false;
+	
+	//preguntamos si son iguales
+	if(nuevaClave==nuevaRepetirClave)
+		iguales = true;
+	else
+		iguales = false;
+	
+	
+	//hay que volver a rellenar el formulario, porque al recargar se pierde todo lo escrito en los campos
+	
+	//document.getElementById("nuevaClave").value = nuevaClave;
+	//document.getElementById("nuevaClave").value = nuevaRepetirClave;
+
+	
+	
+	return iguales;
+}
+
+window.addEventListener("load", function() {
+	
+	//var resultadoValidacion = validaNuevaClave(nuevaClave,nuevaRepetirClave);
+
+
+	//seleccionamos los valores de clave y repetir clave
+	var nombreUsuario = document.getElementById("nombreUsuario").value;
+	var clave = document.getElementById("claveActual").value;
+	var nuevaClave = document.getElementById("nuevaClave").value;
+	var nuevaRepetirClave = document.getElementById("nuevaRepetirClave").value;
+	
+	document.getElementById("enviarnota").onclick = validaNuevaClave;
+
+	
+	//cambiarColor();
+	//Asignamos eventos a los elementos de HTML
+	//document.getElementById("otracategoria").onclick = crearCategoria;
+	//document.getElementById("color").onchange = cambiarColor;
+	//document.getElementById("otrocolor").onchange = crearColor;
+});

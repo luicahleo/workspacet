@@ -1,0 +1,35 @@
+"use strict";
+
+var iguales = false;
+
+
+function validaNuevaClave() {
+	
+	
+	
+	alert("estas en validaNuevaClave");
+	
+	//seleccionamos los valores de clave y repetir clave
+	var nombreUsuario = document.getElementById("nombreUsuario").value;
+	var clave = document.getElementById("claveActual").value;
+	var nuevaClave = document.getElementById("nuevaClave").value;
+	var nuevaRepetirClave = document.getElementById("nuevaRepetirClave").value;
+	//preguntamos si son iguales
+	if(nuevaClave==nuevaRepetirClave)
+		iguales = true;
+	else
+		iguales = false;
+	
+	
+	return iguales;
+}
+
+window.addEventListener("load", function() {
+	
+	//le asiganmos un evento a enviar
+	document.getElementById("enviarnota").onclick = validaNuevaClave;
+	//si las claves son iguales, recien preguntamos a la BD
+	if
+	
+	
+});
