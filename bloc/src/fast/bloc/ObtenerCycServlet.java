@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ObtenerEstadisticasServlet
  */
-@WebServlet("/admins/cyc")
+@WebServlet("/admins/cycs")
 public class ObtenerCycServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -44,14 +44,16 @@ public class ObtenerCycServlet extends HttpServlet {
 		listaColores = notas.obtenerColores(nombre);
 		String errorCategoria = "No se han encontrado categorías";
 		String errorColor = "No se han encontrado colores";
+		String errorUsuario = "No se existe este usuario";
+
 		StringBuffer error = new StringBuffer();
 		StringBuffer categorias = new StringBuffer();
 		StringBuffer colores = new StringBuffer();
 		
 		if (nombre_usu != null) {
 
-			Usuario usuarioExiste = usuarios.existe(nombre, "clave");
-			if (usuarioExiste != null) {
+			boolean usuarioExiste = usuarios.existeUsuario(nombre);
+			if (usuarioExiste) {
 				
 				
 				
@@ -118,9 +120,14 @@ public class ObtenerCycServlet extends HttpServlet {
 				} else {
 					error.append(errorColor);
 				}
-			}
+			}else
+				error.append(errorUsuario);
+
+			
 		} else {
 			System.out.println("El parametro " + nombre_usu + "no es del tipo admin");
+			error.append(errorUsuario);
+
 		}
 
 		// La creación de JSON se puede simplificar usando librerías, pero aquí

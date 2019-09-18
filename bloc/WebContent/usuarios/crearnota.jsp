@@ -14,6 +14,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css" />
 	<script src="js/crearnotas.js"></script>
+	<script type="text/javascript" src="js/cabecera.js"></script>
+	
 </head>
 <body>
 	<jsp:include page="cabecera.jsp" />

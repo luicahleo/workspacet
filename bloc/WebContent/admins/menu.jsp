@@ -31,6 +31,10 @@
 					<span class="textoopcion">Mostrar <br />usuarios
 				</span>
 			</span></a></li>
+			<li><a href="admins/crearusuario.jsp"><span class="fondo">
+					<span class="textoopcion">Crear <br />usuario
+				</span>
+			</span></a></li>
 	</ol>
 </div>
 

@@ -18,17 +18,35 @@ function mostrarEsperando(elemento) {
 //	imagen: url de la imagen asociada a la nota
 //  error: texto con el error producido al buscar los detalles de una nota
 function mostrarDetalle(elemento, objetoDetalle, id) {
+	
+	
 	if (objetoDetalle.error != null && objetoDetalle.error !="") {
 		//error
 		elemento.innerHTML="<p>Error: "+objetoDetalle.error+"</p>";
 	} else {
+		//creamos unos string para almacenar lo que se ejecutara en el navegador
+		var categorias="";
+		var colores="";
+		var error="";
+
 		
-		
-		
+		for (var i = 0; i < objetoDetalle.categorias.length; i++) {
+			categorias += "<li>"+objetoDetalle.categorias[i]+"</li>";
+			
+		}
+		for (var i = 0; i < objetoDetalle.colores.length; i++) {
+			colores += "<li>"+objetoDetalle.colores[i]+"</li>";
+			
+		}
+		for (var i = 0; i < objetoDetalle.error.length; i++) {
+			error += "<li>"+objetoDetalle.error[i]+"</li>";
+			
+		}
+
 		elemento.innerHTML=
-			"<p>categorias: </p><ul><li>"+objetoDetalle.categorias+"</li></ul>"+
-			"<p>colores: </p><ul><li>"+objetoDetalle.colores+"</li></ul>"+
-			"<p>errores: </p><ul><li>"+objetoDetalle.error+"</li></ul>";
+			"<ul><li>categorias: </li><ul>"+categorias+"</ul></ul>"+
+			"<ul><li>categorias: </li><ul>"+colores+"</ul></ul>"+
+			"<ul><li>categorias: </li><ul>"+error+"</ul></ul>";
 			
 			
 	}

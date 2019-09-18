@@ -16,6 +16,8 @@ List<Nota> lista = notas.obtenerTitulos(); // Se obtienen id y título de todas 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../css/estilo.css" />
     <script src="../usuarios/js/listarnotas.js"></script>
+    <script type="text/javascript" src="../usuarios/js/cabecera.js"></script>
+    
   </head>
 	
 	<jsp:include page="../usuarios/cabecera.jsp" />

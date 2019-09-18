@@ -101,7 +101,7 @@ public class UsuariosDAO {
 	}
 
 	public boolean existeUsuario(String nombre, String contra) {
-		
+
 		boolean existe = false;
 		Usuario usuario = null;
 		Connection conn;
@@ -135,8 +135,8 @@ public class UsuariosDAO {
 	}
 
 	public boolean actualiza(String nombre, String contra) throws DAOException {
-		
-		boolean resultado=false;
+
+		boolean resultado = false;
 		Connection conn;
 		try {
 			System.out.println("Se va a actualizar la clave del usuario " + nombre);
@@ -148,16 +148,47 @@ public class UsuariosDAO {
 			int contador = st.executeUpdate();
 			if (contador == 1) {
 				System.out.println("Se ha actualizado la clave del usuario:" + nombre);
-				resultado=true;
+				resultado = true;
 			}
 			st.close();
-			conn.close();	
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw (new DAOException("Error en actualizar("+contra+", "+nombre+")"));
+			throw (new DAOException("Error en actualizar(" + contra + ", " + nombre + ")"));
 		}
 
 		return resultado;
 	}
 
+	public boolean existeUsuario(String nombre) {
+
+		boolean existe = false;
+		Usuario usuario = null;
+		Connection conn;
+		try {
+			System.out.println("Se va a comprobar el usuario=" + nombre);
+			conn = ds.getConnection();
+			String sql = "SELECT * FROM usuarios WHERE nombre=? ";
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setString(1, nombre);
+			ResultSet rs = st.executeQuery();
+			if (rs.next()) {
+				System.out.println("Se ha encontrado el usuario ");
+				existe = true;
+				usuario = new Usuario();
+				usuario.setNombre(nombre);
+				System.out.println("El tipo de usuario es=" + usuario.getTipo_usu());
+			} else {
+				System.out.println("No se ha encontrado el usuario.");
+			}
+			rs.close();
+			st.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Error en existe(" + nombre + ") de UsuariosDAO");
+		}
+
+		return existe;
+	}
 }

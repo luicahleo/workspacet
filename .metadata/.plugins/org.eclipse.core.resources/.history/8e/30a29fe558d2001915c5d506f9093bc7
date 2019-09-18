@@ -1,0 +1,81 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8"
+		import="java.util.List, fast.bloc.Nota, fast.bloc.DAOException"%>
+
+<jsp:useBean id="usuario" class="fast.bloc.Usuario" scope="session" />
+<jsp:useBean id="notas" class="fast.bloc.NotasDAO" scope="application" />
+<jsp:useBean id="nota" class="fast.bloc.Nota" />
+<jsp:setProperty property="*" name="nota"/>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bloc de Notas - FAST: Crear nota</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css" />
+	<script src="../usuarios/js/listarnotas.js"></script>
+	<script src="../usuarios/js/crearnotas.js"></script>
+	<script type="text/javascript" src="../usuarios/js/cabecera.js"></script>
+</head>
+<body>
+
+	<jsp:include page="../usuarios/cabecera.jsp" />
+	
+	<% 
+	//List<String> categorias = notas.obtenerCategorias(usuario.getNombre());
+	//List<String> colores = notas.obtenerColores(usuario.getNombre());
+	%>
+	<% // Código HTML + JSP  
+	//TODO esto se podría hacer con AJAX y se eliminaría el código
+// 	if ( request.getParameterMap().containsKey("resultado")) { 
+	if ( request.getParameter("resultado") != null) {	// getParameterMap() o getParameter() aquí funcionan igual.
+		
+		String mensajeError = "";
+		
+	    //Muestra error o exito
+		if ( ! mensajeError.isEmpty() ) {
+		%>
+			<div id="error"><p> ERROR: 
+			<%= mensajeError %>
+			</p></div>
+		<%
+		} else { %>
+			<div id="exito"><p> INFO: USUARIO CREADO/MODIFICADO</p></div>
+	<%
+		}
+	} 
+	//mostramos formulario
+	%>
+
+
+	<div id="crear">
+		<h1>Identificar/Crear Usuario</h1>
+		<div id="formcrear">
+			<form method="post" action="CrearUsuario" onsubmit="return validacion();">
+			<div class="nombre-div">
+				<label for="nombre"><strong>Nombre de usuario</strong></label>
+				<input id="nombre" type="text" value="" name="nombre" maxlength="100"
+					required="required"></input>
+			</div>
+			<div class="clave-div">
+				<label for="clave"><strong>Clave</strong></label>
+				<input id ="clave" type="password" name="clave"required="required"></input>
+			</div>
+			<div class="tipo_usu-div">
+				<label for="tipoUsu"><strong>Tipo de Usuario</strong></label>
+				<select id="tipoUsu" name="tipo_usu">
+					<option value="0" selected="selected">Administrador</option>
+					<option value="1">Usuario</option>
+				</select>
+			</div>
+			<input class="boton" id="enviarnota" type="submit" value="Crear/Modificar" name="enviarnota"></input>
+			<input class="boton" id="limpiar" type="reset" value="Limpiar datos" name="limpiar"></input>
+			</form>
+			
+		</div>
+	</div>
+	
+
+	<%@include file="../pie.jsp"%>
+  </body>
+</html>

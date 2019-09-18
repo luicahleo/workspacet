@@ -23,6 +23,8 @@ List<Usuario> listaUsuarios = usuarios.obtenerUsuarios();
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../css/estilo.css" />
     <script src="js/listarusuarios.js"></script>
+    <script type="text/javascript" src="../usuarios/js/cabecera.js"></script>
+    
   </head>
   <body>	
 	<jsp:include page="../usuarios/cabecera.jsp" />
